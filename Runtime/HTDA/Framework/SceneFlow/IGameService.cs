@@ -1,8 +1,10 @@
-﻿namespace HTDA.Framework.SceneFlow
+﻿using HTDA.Framework.Core.Primitives;
+
+namespace HTDA.Framework.SceneFlow
 {
     public interface IGameService
     {
-        void Initialize(ServiceContainer services);
+        void Initialize(ServiceRegistry services);
         void Shutdown();
     }
 }
