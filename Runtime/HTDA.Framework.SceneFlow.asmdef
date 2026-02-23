@@ -1,7 +1,10 @@
 {
-  "name": "HTDA.Framework.Template",
-  "rootNamespace": "HTDA.Framework.Template",
-  "references": [],
+  "name": "HTDA.Framework.SceneFlow",
+  "rootNamespace": "HTDA.Framework.SceneFlow",
+  "references": [
+    "HTDA.Framework.Events",
+    "HTDA.Framework.Core"
+  ],
   "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": false,

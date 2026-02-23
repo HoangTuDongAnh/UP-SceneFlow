@@ -1,8 +1,8 @@
 {
-  "name": "HTDA.Framework.Template.Tests",
-  "rootNamespace": "HTDA.Framework.Template.Tests",
+  "name": "HTDA.Framework.SceneFlow.Tests",
+  "rootNamespace": "HTDA.Framework.SceneFlow.Tests",
   "references": [
-    "HTDA.Framework.Template"
+    "HTDA.Framework.SceneFlow"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

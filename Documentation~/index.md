@@ -1,4 +1,4 @@
-# HTDA Framework – Template
+# HTDA Framework – SceneFlow
 
 This is the documentation entry point for the package.
 
