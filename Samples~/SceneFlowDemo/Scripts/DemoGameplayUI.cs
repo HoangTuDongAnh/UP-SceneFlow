@@ -3,16 +3,17 @@ using UnityEngine.SceneManagement;
 
 namespace HTDA.Framework.SceneFlow.Samples
 {
+    /// <summary>
+    /// Hook Restart() to a UI Button OnClick to avoid dependency on Legacy Input.
+    /// Compatible with both Legacy Input and New Input System projects.
+    /// </summary>
     public sealed class DemoGameplayUI : MonoBehaviour
     {
-        public string bootScene = "Boot";
+        [SerializeField] private string bootScene = "Boot";
 
-        private void Update()
+        public void Restart()
         {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                SceneManager.LoadScene(bootScene);
-            }
+            SceneManager.LoadScene(bootScene, LoadSceneMode.Single);
         }
     }
 }
