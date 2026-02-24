@@ -1,32 +1,30 @@
-# HTDA Framework Template (UPM)
+# UP-SceneFlow (HTDA.Framework.SceneFlow)
 
-This repository is a **Unity Package Manager (UPM) template** for creating new HTDA Framework modules.
+Chuẩn hoá flow: bootstrap → load scene → loading screen → gameplay → unload.
+
+## Features
+
+- Bootstrap: `GameBootstrap` tạo service registry và init service cơ bản
+- Scene API: `ISceneLoader` / `SceneLoader`
+- Loading pipeline:
+    - progress 0..1 (normalized)
+    - hooks trước/sau load
+    - `MinLoadingTime` để tránh loading quá nhanh
+- Flow events qua UP-Events:
+    - `SceneLoadStarted`
+    - `SceneLoadProgress`
+    - `SceneLoaded`
+    - `SceneUnloaded`
+- Sample: SceneFlowDemo (Boot → Loading → Gameplay)
 
 ## Quick start
 
-1. Copy this folder as a new repository (recommended repo name: `HTDA-Framework-<ModuleName>`).
-2. Run the wizard:
-
-```bash
-python Tools/setup_wizard.py
+```csharp
+var loader = GameBootstrap.Services.Get<ISceneLoader>();
+await loader.LoadSceneAsync("Gameplay");
 ```
-
-3. The wizard will:
-- rename package id (com.htda.framework.<suffix>)
-- rename assemblies and namespaces (HTDA.Framework.<ModuleName>)
-- optionally remove Runtime or Editor parts based on package type
-
-## Conventions
-
-- Package id: com.htda.framework.<suffix> (e.g. core, editor.tools, patterns.pooling)
-
-- Assembly: HTDA.Framework.<ModuleName> and HTDA.Framework.<ModuleName>.Editor
-
-- Namespace root: HTDA.Framework.<ModuleName>
 
 ## Notes
 
-- Keep Core packages small and stable.
-
-- Move optional utilities/patterns/extensions into separate modules.
-
+- Với Additive loading, hãy đảm bảo chỉ có **1 AudioListener** hoạt động tại một thời điểm.
+- Sample nên dùng UI Button thay vì `UnityEngine.Input` để tương thích cả Legacy + New Input System.
