@@ -1,30 +1,11 @@
 # UP-SceneFlow (HTDA.Framework.SceneFlow)
 
-Chuẩn hoá flow: bootstrap → load scene → loading screen → gameplay → unload.
+Chuẩn hoá flow load scene + progress + bootstrap.
 
-## Features
+## Bắt đầu nhanh
+- Tạo scene Boot/Bootstrap (Build index 0)
+- Thêm component **GameBootstrap**
+- (Tuỳ chọn) dùng ISceneLoader để load Loading/GamePlay.
 
-- Bootstrap: `GameBootstrap` tạo service registry và init service cơ bản
-- Scene API: `ISceneLoader` / `SceneLoader`
-- Loading pipeline:
-    - progress 0..1 (normalized)
-    - hooks trước/sau load
-    - `MinLoadingTime` để tránh loading quá nhanh
-- Flow events qua UP-Events:
-    - `SceneLoadStarted`
-    - `SceneLoadProgress`
-    - `SceneLoaded`
-    - `SceneUnloaded`
-- Sample: SceneFlowDemo (Boot → Loading → Gameplay)
-
-## Quick start
-
-```csharp
-var loader = GameBootstrap.Services.Get<ISceneLoader>();
-await loader.LoadSceneAsync("Gameplay");
-```
-
-## Notes
-
-- Với Additive loading, hãy đảm bảo chỉ có **1 AudioListener** hoạt động tại một thời điểm.
-- Sample nên dùng UI Button thay vì `UnityEngine.Input` để tương thích cả Legacy + New Input System.
+## Sample
+Import Sample: **SceneFlow Demo** từ Package Manager.
